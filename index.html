@@ -1,27 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- The following 2 meta tags always come first -->
-	<!-- Notify browsers this page is in Unicode -->
-	<meta charset="utf-8">
-	<!-- This site is responsive. Use full screen width. -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Spectre.css starter template -->
-	<!-- Create title for browser tabs & Favorites -->
-	<title>GMRS & Amateur License Lookup</title>
-	<meta name="description" content="Finding people licensed for both Ham radio and GMRS">
-	<meta name="keywords" content="ham, gmrs, radio, license">	
-	<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-	<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-	<!-- <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"> -->
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMRS & Amateur License Lookup</title>
+<meta name="description" content="Finding people licensed for both amateur (ham) radio and GMRS">
+<meta name="keywords" content="amateur, ham, gmrs, radio, license">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
 <script src="./dist/bundle.js"></script>
 <script>
     function search(query) {
       window.location.search = '?' + query;
     }
 </script>
-
 <style>
     /* Make the navbar taller, and high contrast. */
     .navbar { height: 6rem; background-color: #222222; padding: .5em 0 1em; }
@@ -38,25 +30,9 @@
     /* Add padding to the right side of navbar. */
     .navbar-section { padding-right: 2rem;}
 
-</style>
+    .hero-sm { padding-left: 1em;}
 
-<!-- <style>
-    .result {
-        padding: 1em
-    }
-    .callsign {
-        font-family: Arial;
-        font-size: larger;
-        color: rgb(9, 82, 239);
-    }
-    .name, .address, .service {
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: smaller
-    }
 </style>
--->
-</head>
-
 
 <body>
     <!-- navbar -->
@@ -67,37 +43,29 @@
         </div>
 		<section class="navbar-section">
 			<a href="https://github.com/ae5au/gmrs.app-website" class="btn btn-link">GitHub</a> 
-			<a href="#" class="btn btn-link">Contact</a> 
+			<a href="?ae5au" class="btn btn-link">Contact</a> 
         </section>
 
 	</header>
     <p></p>
-    <div class="pt-2"></div>
-    <p></p>
-    <!-- intro text -->
-	<div class="container text-center">
-		<h1>Ever wondered if that Ham is also on GMRS?</h1>
+<!--    <div class="pt-2"></div> -->
+    <!--<p></p>-->
+	<div class="container grid-sm">
+        <div class="form_group">
+            <form onsubmit="search(call_search.value)" action="javascript:void(0);">
+                <div class="input-group">
+                    <!-- <span class="input-group-addon">Call Sign</span> -->
+                    <input type="text" class="form-input" name="call_search" placeholder="Call Sign">
+                    <button class="btn btn-primary input-group-btn" onclick="search(call_search.value)">Search</button>
+                </div>
+            </form>
+        </div>
+        <div id=results></div>
+
+		<h1>Ever wondered if that ham is also on GMRS?</h1>
 		<p>What about if that GMRS user is also a ham?
         Here's the tool for you. The Ham Radio & GMRS Licence Holder Lookup</p>
 	</div>
-    <div class="pt-2"></div>
-
-<!--attempting to css the form-->
-
-
-<div class="form_group">
-<form onsubmit="search(call_search.value)" action"javascript:void(0);">
-    <!-- <label class="form-input">Search:</label> -->
-
-
-
-    <form onsubmit="search(call_search.value)" action="javascript:void(0);">
-        <label class="form-label" for="call_search">Search:</form>
-        <input class="form-input" placeholder="AE5AU" type="search" id="call_search" name="call_search" 
-          onchange="search(call_search.value)" pattern="[A-Za-z0-9]{1,7}" title="Call Sign">
-	<input class="btn" type="form-input" value="Submit">
-    </form>
-    <div id=results></div>
-    <!-- <div id=about>Search for amateur or GMRS call signs. Learn if licensee also has the other type of license.</div> -->
-</div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc0769f8ba304901ae70d4243f268003"}'></script><!-- End Cloudflare Web Analytics -->
+    
 </body>

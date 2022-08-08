@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMRS & Amateur License Lookup</title>
+<meta name="description" content="Finding people licensed for both amateur (ham) radio and GMRS">
+<meta name="keywords" content="amateur, ham, gmrs, radio, license">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+<link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+<script src="./dist/bundle.js"></script>
+<script>
+    function search(query) {
+      window.location.search = '?' + query;
+    }
+</script>
+<style>
+    /* Make the navbar taller, and high contrast. */
+    .navbar { height: 6rem; background-color: #222222; padding: .5em 0 1em; }
+    .navbar-primary .navbar-brand { 
+        color: #fff; 
+        font-size: 3rem; 
+        font-weight: bold; 
+        padding-left: 2rem;
+    }
+    .btn.btn-link { color: lightgray; background-color: #222222; font-size: 1.5em;}
+    /* Make the button link color lighter on the nav bar */		
+    .btn.btn-link.selected { color: white; background-color: #222222; font-size: 1.5em;}
+    
+    /* Add padding to the right side of navbar. */
+    .navbar-section { padding-right: 2rem;}
+
+    .hero-sm { padding-left: 1em;}
+
+    /* attempting to animate the submit button for loading */
+    .btn.btn-primary.input-group-btn:focus {
+        loading;
+    }
+    /* this stuff controls the filter buttons for the table */
+    .container {
+    overflow: hidden;
+    }
+
+    .channels {
+    display: none; /* Hidden by default */
+    }
+
+    /* The "show" class is added to the filtered elements */
+    .show {
+    display: block;
+    }
+
+
+</style>
+
+<body>
+    <!-- navbar -->
+	<header class="navbar">
+		<!-- Logo on the left -->
+		<div class="navbar-primary">	
+			<a href="#" class="navbar-brand mr-10">GMRS.app</a>
+        </div>
+		<section class="navbar-section">
+			<a href="https://github.com/ae5au/gmrs.app-website" class="btn btn-link">GitHub</a> 
+			<a href="?ae5au" class="btn btn-link">Contact</a> 
+        </section>
+
+	</header>
+    <p></p>
+<!--    <div class="pt-2"></div> -->
+    <!--<p></p>-->
+	<div class="container grid-md">
+
+        <div id="FilterButtons">
+            <button class="btn active" onclick="filterSelection('all')">Show all</button>
+            <button class="btn" onclick="filterSelection('GMRS')">GMRS</button>
+            <button class="btn" onclick="filterSelection('FRS')">FRS</button>
+            <button class="btn" onclick="filterSelection('Repeaters')">Repeaters</button>
+          </div>
+
+
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Channel</th>
+                <th>Frequency</th>
+                <th>Max Power</th>
+                <th>Detachable Antenna</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            <tr class="channels GMRS FRS">
+                <td>1</td>
+                <td>462.5625</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+            <tr class="channels GMRS FRS">
+                <td>2</td>
+                <td>462.5875</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>3</td>
+                <td>462.6125</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>4</td>
+                <td>462.6375</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>5</td>
+                <td>462.6625</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>5</td>
+                <td>462.6625</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>6</td>
+                <td>462.6875</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>7</td>
+                <td>462.7125</td>
+                <td>5</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>8</td>
+                <td>467.5625</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>9</td>
+                <td>467.5875</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>10</td>
+                <td>467.6125</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>11</td>
+                <td>467.6375</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>12</td>
+                <td>467.6625</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>13</td>
+                <td>467.6875</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>14</td>
+                <td>467.7125</td>
+                <td>.5</td>
+                <td>NO</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>15</td>
+                <td>462.5500</td>
+                <td>50</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>16</td>
+                <td>462.5750</td>
+                <td>50</td>
+                <td>GMRS Only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>17</td>
+                <td>462.6000</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>18</td>
+                <td>462.6250</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>19</td>
+                <td>462.6500</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>20</td>
+                <td>462.6750</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>21</td>
+                <td>462.7000</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels GMRS FRS">
+                <td>22</td>
+                <td>462.6000</td>
+                <td>50</td>
+                <td>GMRS only</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>15RP</td>
+                <td>467.550</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>16RP</td>
+                <td>467.5750</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+            
+            <tr class="channels Repeaters">
+                <td>17RP</td>
+                <td>467.6000</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>18RP</td>
+                <td>467.6250</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>19RP</td>
+                <td>467.6500</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>20RP</td>
+                <td>467.6750</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>21RP</td>
+                <td>467.7000</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            <tr class="channels Repeaters">
+                <td>22RP</td>
+                <td>467.7250</td>
+                <td>50</td>
+                <td>GMRS</td>
+            </tr>
+
+            </tbody>
+          </table>
+	</div>
+
+<script>
+    filterSelection("all")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("channels");
+  if (c == "all") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("FilterButtons");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dc0769f8ba304901ae70d4243f268003"}'></script><!-- End Cloudflare Web Analytics -->
+    
+</body>
+
+
+    
